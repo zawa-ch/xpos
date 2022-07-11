@@ -1,6 +1,6 @@
 # XPOS Data Format
 
-version 0.1.0
+version 0.1.1
 
 ## <a id="sec-1"></a> 1. Abstract - 概要
 
