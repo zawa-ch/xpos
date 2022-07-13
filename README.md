@@ -21,3 +21,15 @@ XPOSはRIFFのような既存のデータ交換用形式の置換え、および
 -	事実上無制限の大規模バイナリ・文字列を扱うことができる(最大 2.47x10^611 バイト程度)
 
 -	必要に応じて拡張可能
+
+## リポジトリの内容
+
+-	README.md
+
+-	docs
+
+	-	[specification.md](https://github.com/zawa-ch/xpos/blob/main/docs/specification.md)  
+		XPOSデータフォーマット定義の本文
+
+-	[examples](https://github.com/zawa-ch/xpos/tree/main/examples)  
+	XPOSおよび他フォーマットとの比較用の例示用データ
