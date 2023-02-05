@@ -1,6 +1,6 @@
 # XPOS Data Format
 
-version 0.2.0
+version 0.3.0
 
 ## <a id="sec-1"></a> 1. Abstract - 概要
 
@@ -161,18 +161,7 @@ XPOSデータはプリミティブ型データのみですべてのデータを�
 ### <a id="sec-3-4"></a> 3.4. Real Number Type - 実数型
 
 実数型は、実数を記述するためのプリミティブ型である。
-扱う実数は、IEEE-754の浮動小数点数のうち、二進法の基本形式
-
--	単精度 (binary32)
--	倍精度 (binary64)
--	四倍精度 (binary128)
-
-および交換形式
-
--	半精度 (binary16)
--	四倍精度以上 (binary160 ...)
-
-のいずれかである。
+扱う実数は、任意の長さのPosit形式<sup id="refer-1"><a href="#reference-1">\[1\]</a></sup>とする。
 
 また、バイトオーダーはビッグエンディアンである。
 
@@ -350,15 +339,8 @@ XPOSタグのデータを構成する単位は2バイトの長さを持つビッ
 内容は単一ワード長タグ([4.1.1.参照](#sec-4-1-1))として表し、
 実数型([3.4.参照](#sec-3-4))によってデータを記述する。
 
-格納される浮動小数点数の形式はデータの長さの値によって区別される。
-つまり、取りうるデータ長の値は
-
--	2 `02`h (binary16)
--	4 `04`h (binary32)
--	8 `08`h (binary64)
--	16 `10`h (binary128)
-
-および16以上の4の倍数であり、それ以外の値がデータ長の値として現れてはならないということである。
+データはワードの境界にアライメントされていなくてはならない。
+つまり、データの長さはちょうど2バイトの倍数でなくてはならないということである。
 
 #### <a id="sec-4-2-8"></a> 4.2.8. Short Collection Tag - 単一ワード長コレクションタグ
 
@@ -588,6 +570,8 @@ XPOSが定義するのは基本型オブジェクトのシリアライズの方�
 他のさらに冗長な表現を用いて整数型を表現してもよい。
 
 ## <a id="sec-7"></a> 7. References - 参考文献
+
+1.	<span id="reference-1">[^](#refer-1) Beating Floating Point at its Own Game: Posit Arithmetic (http://www.johngustafson.net/pdfs/BeatingFloatingPoint.pdf)</span>
 
 
 ## <a id="appendix-a"></a> 付録A. Example of Extended Object: CRC Checksum - 拡張オブジェクト使用例: CRCチェックサム
